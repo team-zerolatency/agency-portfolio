@@ -45,5 +45,6 @@ export const siteConfig = {
     { label: "GitHub", href: "https://github.com/" },
     { label: "LinkedIn", href: "https://linkedin.com/" },
     { label: "X", href: "https://x.com/" },
+    { label: "WhatsApp", href: "https://wa.me/" },
   ],
 } as const;

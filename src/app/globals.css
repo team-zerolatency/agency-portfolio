@@ -75,6 +75,23 @@
       opacity: 0;
     }
   }
+
+  @keyframes footer-beam-fall {
+    0% {
+      top: -160px;
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    85% {
+      opacity: 1;
+    }
+    100% {
+      top: 100%;
+      opacity: 0;
+    }
+  }
 }
 
 /* Glassmorphism: use as class "glass" */
