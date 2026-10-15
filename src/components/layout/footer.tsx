@@ -42,7 +42,7 @@ export function Footer() {
 
       <div className="border-t border-border">
         <p className="mx-auto max-w-6xl px-4 py-5 text-xs text-fg-muted sm:px-6">
-          © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+          © {siteConfig.copyrightYear} {siteConfig.name}. All rights reserved.
         </p>
       </div>
     </footer>

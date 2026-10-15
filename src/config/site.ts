@@ -1,6 +1,7 @@
 export const siteConfig = {
   name: "YourAgency", // TODO: real company name
   tagline: "We design, build and ship web & mobile products.",
+  copyrightYear: 2026,
   nav: [
     { label: "Services", href: "#services" },
     { label: "Work", href: "#work" },
