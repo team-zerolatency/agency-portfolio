@@ -376,7 +376,7 @@ export default function GlobeScene({
         enableZoom={false}
         enablePan={false}
         autoRotate={isMoving}
-        autoRotateSpeed={2.0}
+        autoRotateSpeed={0.5}
         rotateSpeed={0.5}
       />
     </Canvas>
