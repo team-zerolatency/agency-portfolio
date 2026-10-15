@@ -20,11 +20,13 @@ describe("ProjectsBand", () => {
     }
   });
 
-  it("scrolls the second row in the opposite direction", () => {
+  it("scrolls rows across the band in alternating directions", () => {
     const { container } = render(<ProjectsBand />);
     const tracks = container.querySelectorAll("[data-marquee-track]");
     expect(tracks.length).toBeGreaterThanOrEqual(4);
+    // Upper row (tracks 0 & 1) scrolls right to left
     expect(tracks[0]).not.toHaveClass("[animation-direction:reverse]");
+    // Lower row (tracks 2 & 3) scrolls left to right
     expect(tracks[2]).toHaveClass("[animation-direction:reverse]");
   });
 

@@ -75,7 +75,7 @@ export const homeConfig: {
   projects: {
     heading: "Projects delivered",
     total: facts.projectsShipped,
-    label: "projects shipped and counting",
+    label: "......and counting",
     items: [
       { name: "Fleet Tracker", category: "Android" },
       { name: "PayDash", category: "Web app" },

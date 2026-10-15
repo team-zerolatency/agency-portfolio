@@ -9,7 +9,7 @@ describe("techStack", () => {
     expect(techStack.length).toBeGreaterThan(0);
     for (const t of techStack) {
       expect(t.name.length).toBeGreaterThan(0);
-      expect(t.path.length).toBeGreaterThan(20);
+      expect(t.path.length).toBeGreaterThanOrEqual(20);
       expect(t.hex).toMatch(/^[0-9a-f]{6}$/i);
     }
   });

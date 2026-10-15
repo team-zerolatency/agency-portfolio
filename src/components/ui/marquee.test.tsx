@@ -35,4 +35,14 @@ describe("Marquee", () => {
       "[animation-direction:reverse]",
     );
   });
+
+  it("applies animationDelay style when delay prop is specified", () => {
+    const { container } = render(
+      <Marquee delay={-2.5}>
+        <span>Acme</span>
+      </Marquee>,
+    );
+    const track = container.querySelector("[data-marquee-track]") as HTMLElement;
+    expect(track.style.animationDelay).toBe("-2.5s");
+  });
 });

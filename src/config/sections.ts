@@ -1,4 +1,5 @@
 import type { BentoSize } from "@/components/ui/bento";
+import { facts } from "./fact";
 
 export interface Heading {
   lead: string;
@@ -109,7 +110,7 @@ export const impactConfig: {
     ],
   },
   counters: [
-    { label: "Projects shipped", value: 120, suffix: "+", size: "md" },
+    { label: "Projects shipped", value: facts.projectsShipped, suffix: "+", size: "md" },
     { label: "Client retention", value: 98, suffix: "%", size: "md" },
     { label: "Countries served", value: 12, size: "sm" },
     { label: "Days to first prototype", value: 7, size: "sm" },
