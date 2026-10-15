@@ -8,6 +8,7 @@ import { Speed } from "@/components/sections/speed";
 import { GlobeSection } from "@/components/sections/globe-section";
 import { TeamSection } from "@/components/sections/team-section";
 import { ContactSection } from "@/components/sections/contact-section";
+import { TechStrip } from "@/components/sections/tech-strip";
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
 
       <div className="relative z-10">
         <div className="w-full border-b border-border">
-          <Hero />
+          <Hero strip={<TechStrip />} />
         </div>
         <div className="w-full border-b border-border">
           <Clients />

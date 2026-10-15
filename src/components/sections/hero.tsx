@@ -4,7 +4,6 @@ import { ArrowRight } from "lucide-react";
 import { homeConfig } from "@/config/home";
 import { siteConfig } from "@/config/site";
 import { ButtonLink } from "@/components/ui/button";
-import { Marquee } from "@/components/ui/marquee";
 import { CountUp } from "@/components/ui/count-up";
 import { TestimonialSlider } from "./testimonial-slider";
 
@@ -14,8 +13,8 @@ const reveal = (i: number) => ({
   transition: { delay: i * 0.08, duration: 0.5, ease: "easeOut" as const },
 });
 
-export function Hero() {
-  const { eyebrow, headline, description, strip, stats } = homeConfig.hero;
+export function Hero({ strip }: { strip: React.ReactNode }) {
+  const { eyebrow, headline, description, stats } = homeConfig.hero;
 
   return (
     <section className="relative overflow-hidden pt-16">
@@ -24,24 +23,18 @@ export function Hero() {
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60%_50%_at_50%_0%,var(--glow),transparent_70%)]"
       />
+      {/*
+        Grid lines every 48px, shifted down 63px: the navbar is 64px tall, so the first
+        horizontal line sits on its bottom border. The strip below is 96px (2 cells) tall,
+        so its bottom border lands on a grid line too.
+      */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(var(--border)_1px,transparent_1px),linear-gradient(90deg,var(--border)_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)] bg-[size:48px_48px]"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(var(--border)_1px,transparent_1px),linear-gradient(90deg,var(--border)_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)] bg-[size:48px_48px] bg-[position:0_63px]"
       />
 
-      {/* top strip */}
-      <div className="border-b border-border py-3">
-        <Marquee duration={35}>
-          {strip.map((item) => (
-            <span
-              key={item}
-              className="font-mono text-xs tracking-[0.2em] whitespace-nowrap text-fg-muted uppercase"
-            >
-              {item}
-            </span>
-          ))}
-        </Marquee>
-      </div>
+      {/* tech logo strip (passed in from the page) */}
+      {strip}
 
       <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.2fr_1fr] lg:items-center lg:py-28">
         <div>
