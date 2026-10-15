@@ -8,12 +8,15 @@ export function GlobeSection() {
   const { label, heading, description, locations, connections, stats } = globeConfig;
 
   return (
-    <section id="reach" className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+    <section
+      id="reach"
+      className="mx-auto mt-12 max-w-6xl px-4 pt-2 pb-16 sm:mt-16 sm:px-6 sm:pt-4 sm:pb-20"
+    >
       <Reveal>
         {/* 2-Column Split matching reference: Heading on Left, Globe on Right */}
-        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12">
+        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-12">
           {/* Left Column: Headline and Description */}
-          <div className="flex flex-col justify-center lg:col-span-5">
+          <div className="flex flex-col justify-center lg:col-span-5 lg:pt-8">
             <SectionHeader index={6} label={label} heading={heading} description={description} />
           </div>
 
