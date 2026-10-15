@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
+
 /**
  * Script to generate world-map dot positions from Natural Earth GeoJSON.
  * Run with: node generate-world-dots.mjs

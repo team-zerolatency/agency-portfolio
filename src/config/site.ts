@@ -1,11 +1,13 @@
 export const siteConfig = {
-  name: "YourAgency", // TODO: real company name
+  name: "ZeroLatency",
   tagline: "We design, build and ship web & mobile products.",
+
   copyrightYear: 2026,
   nav: [
     { label: "Services", href: "#services" },
     { label: "Work", href: "#work" },
     { label: "Process", href: "#process" },
+    { label: "Team", href: "#team" },
     { label: "Contact", href: "#contact" },
   ],
   cta: { label: "Start a project", href: "#contact" },
@@ -25,10 +27,12 @@ export const siteConfig = {
       links: [
         { label: "Work", href: "#work" },
         { label: "Process", href: "#process" },
+        { label: "Team", href: "#team" },
         { label: "Blog", href: "/blog" },
         { label: "Contact", href: "#contact" },
       ],
     },
+
     {
       title: "Legal",
       links: [

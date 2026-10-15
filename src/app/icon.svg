@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
+  <defs>
+    <linearGradient id="zl-fav-grad" x1="4" y1="6" x2="28" y2="26" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2b8cff" />
+      <stop offset="1" stop-color="#7cc0ff" />
+    </linearGradient>
+  </defs>
+  <!-- Clean minimalist transparent background ZL geometric speed glyph -->
+  <!-- Z top stroke -->
+  <path
+    d="M4 8.5h14L7 23.5H4"
+    stroke="#f5f7fa"
+    stroke-width="2.6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <!-- L base stroke and speed slash in electric blue -->
+  <path
+    d="M12.5 9.5L6.5 20.5H27"
+    stroke="url(#zl-fav-grad)"
+    stroke-width="2.8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
