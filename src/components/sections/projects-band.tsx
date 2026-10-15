@@ -56,9 +56,9 @@ export function ProjectsBand() {
           {rows.map((row, r) => (
             <Marquee
               key={r}
-              duration={22}
+              duration={26}
               reverse={r === 1}
-              delay={r === 1 ? -2.2 : undefined}
+              delay={r === 1 ? -2.6 : undefined}
               fadeEdges={false}
             >
               {row.map((p) => (
