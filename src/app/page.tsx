@@ -1,5 +1,5 @@
 import { Hero } from "@/components/sections/hero";
-import { Clients } from "@/components/sections/clients";
+import { ProjectsBand } from "@/components/sections/projects-band";
 import { Services } from "@/components/sections/services";
 import { Impact } from "@/components/sections/impact";
 import { CaseStudies } from "@/components/sections/case-studies";
@@ -22,7 +22,7 @@ export default function Home() {
           <Hero strip={<TechStrip />} />
         </div>
         <div className="w-full border-b border-border">
-          <Clients />
+          <ProjectsBand />
         </div>
         <div className="w-full border-b border-border">
           <Services />

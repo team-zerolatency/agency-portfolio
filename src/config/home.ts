@@ -1,3 +1,10 @@
+import { facts } from "./fact";
+
+export interface ProjectItem {
+  name: string;
+  category: string;
+}
+
 export interface Testimonial {
   quote: string;
   name: string;
@@ -16,29 +23,18 @@ export const homeConfig: {
     eyebrow: string;
     headline: { lead: string; accent: string };
     description: string;
-    strip: string[];
     stats: Stat[];
   };
   testimonials: Testimonial[];
-  clients: { heading: string; names: string[] };
+  projects: { heading: string; total: number; label: string; items: ProjectItem[] };
 } = {
   hero: {
     eyebrow: "Web & mobile product studio",
     headline: { lead: "We build digital products that", accent: "ship fast." },
     description:
       "Full-stack websites and Android apps, from first sketch to production. One small team, end to end.",
-    strip: [
-      "Websites",
-      "MERN stack",
-      "Android apps",
-      "Kotlin",
-      "Next.js",
-      "APIs",
-      "DevOps",
-      "UI/UX",
-    ],
     stats: [
-      { label: "Projects shipped", value: 120, suffix: "+" },
+      { label: "Projects shipped", value: facts.projectsShipped, suffix: "+" },
       { label: "Happy clients", value: 60, suffix: "+" },
       { label: "Countries served", value: 12 },
     ],
@@ -76,19 +72,21 @@ export const homeConfig: {
       company: "Umbrella Co",
     },
   ],
-  clients: {
-    heading: "Trusted by 100+ teams",
-    names: [
-      "Acme Labs",
-      "Northwind",
-      "Globex",
-      "Initech",
-      "Umbrella Co",
-      "Hooli",
-      "Stark Works",
-      "Wayne Tech",
-      "Soylent",
-      "Vandelay",
+  projects: {
+    heading: "Projects delivered",
+    total: facts.projectsShipped,
+    label: "projects shipped and counting",
+    items: [
+      { name: "Fleet Tracker", category: "Android" },
+      { name: "PayDash", category: "Web app" },
+      { name: "ShopSphere", category: "E-commerce" },
+      { name: "LearnLoop", category: "EdTech" },
+      { name: "HealthBridge", category: "Health" },
+      { name: "RentEasy", category: "Real estate" },
+      { name: "QuickBite", category: "Food delivery" },
+      { name: "StaffSync", category: "HR tool" },
+      { name: "TripNest", category: "Travel" },
+      { name: "InvoiceFlow", category: "SaaS" },
     ],
   },
 };
