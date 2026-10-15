@@ -1,5 +1,6 @@
 import { Hero } from "@/components/sections/hero";
 import { ProjectsBand } from "@/components/sections/projects-band";
+import { TechnologiesBand } from "@/components/sections/technologies-band";
 import { Services } from "@/components/sections/services";
 import { Impact } from "@/components/sections/impact";
 import { CaseStudies } from "@/components/sections/case-studies";
@@ -25,6 +26,9 @@ export default function Home() {
         </div>
         <div className="w-full border-b border-border">
           <Services />
+        </div>
+        <div className="w-full border-b border-border">
+          <TechnologiesBand />
         </div>
         <div className="w-full border-b border-border">
           <Impact />
