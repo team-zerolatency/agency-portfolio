@@ -1,4 +1,7 @@
 import { render } from "@testing-library/react";
+
+vi.mock("@/lib/gsap", () => ({ gsap: {}, ScrollTrigger: {}, useGSAP: () => {} }));
+
 import Home from "./page";
 import { siteConfig } from "@/config/site";
 
