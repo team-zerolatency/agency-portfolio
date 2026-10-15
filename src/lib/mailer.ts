@@ -1,13 +1,13 @@
 import type { ContactData } from "./contact";
 
-export interface MailerEnv extends NodeJS.ProcessEnv {
+export interface MailerEnv {
   RESEND_API_KEY?: string;
   CONTACT_TO_EMAIL?: string;
   CONTACT_FROM_EMAIL?: string;
 }
 
 interface Options {
-  env?: MailerEnv;
+  env?: MailerEnv | NodeJS.ProcessEnv;
   fetchFn?: typeof fetch;
   isProduction?: boolean;
 }

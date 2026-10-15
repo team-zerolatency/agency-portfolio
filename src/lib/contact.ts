@@ -16,7 +16,7 @@ export type ContactResult = { ok: true; data: ContactData } | { ok: false; error
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const text = (value: unknown) => (typeof value === "string" ? value.trim() : "");
 
-export function validateContact(input: Record<string, unknown>): ContactResult {
+export function validateContact(input: Partial<Record<ContactField, unknown>>): ContactResult {
   const name = text(input.name);
   const email = text(input.email);
   const company = text(input.company);
