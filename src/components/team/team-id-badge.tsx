@@ -10,8 +10,8 @@ interface TeamIdBadgeProps {
 export function TeamIdBadge({ member }: TeamIdBadgeProps) {
   return (
     <div className="relative flex flex-col items-center">
-      {/* Lanyard hanging strap from top */}
-      <div className="h-6 w-4 rounded-t-sm bg-gradient-to-b from-neutral-900 via-neutral-800 to-neutral-700 shadow-inner" />
+      {/* Lanyard hanging strap with smooth blur fade into darkness at top */}
+      <div className="h-12 w-4 rounded-t-sm bg-gradient-to-b from-transparent via-neutral-800 to-neutral-700 shadow-inner sm:h-14" />
 
       {/* Cyber ID Badge with Metallic Clamp physically attached directly to top edge */}
       {/* On hover: Smooth, organic pendulum sway anchored from the lanyard clamp */}
