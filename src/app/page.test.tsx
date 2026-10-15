@@ -1,6 +1,7 @@
 import { render } from "@testing-library/react";
 
 vi.mock("@/lib/gsap", () => ({ gsap: {}, ScrollTrigger: {}, useGSAP: () => {} }));
+vi.mock("@/components/globe/globe-canvas", () => ({ GlobeCanvas: () => null }));
 
 import Home from "./page";
 import { siteConfig } from "@/config/site";
