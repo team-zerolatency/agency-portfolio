@@ -4,7 +4,9 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { AnnouncementBar } from "@/components/layout/announcement-bar";
 import { siteConfig } from "@/config/site";
+import { contactConfig } from "@/config/contact";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const space = Space_Grotesk({ subsets: ["latin"], variable: "--font-space" });
@@ -22,6 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Navbar />
           <main>{children}</main>
           <Footer />
+          <AnnouncementBar {...contactConfig.announcement} />
         </ThemeProvider>
       </body>
     </html>
