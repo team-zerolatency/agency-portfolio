@@ -13,7 +13,7 @@ interface CountUpProps {
 /** Counts from 0 to `to` once, when scrolled into view. Shows the final value for reduced-motion users. */
 export function CountUp({ to, prefix = "", suffix = "", duration = 1.6, className }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-10%" });
+  const inView = useInView(ref, { once: true });
   const reduce = useReducedMotion();
   const [value, setValue] = useState(0);
 

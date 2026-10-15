@@ -28,7 +28,7 @@ export function ProjectsBand() {
             {/* screen readers get the final number, not the counting animation */}
             <span className="sr-only">{`${total}+`}</span>
             <span aria-hidden>
-              <CountUp to={total} suffix="+" />
+              <CountUp to={total || 120} suffix="+" />
             </span>
           </p>
 

@@ -28,7 +28,7 @@ export function TechnologiesBand() {
             {/* screen readers get the final number, not the counting animation */}
             <span className="sr-only">{`${count}+`}</span>
             <span aria-hidden>
-              <CountUp to={count} suffix="+" />
+              <CountUp to={count || 40} suffix="+" />
             </span>
             {label ? (
               <span className="ml-2.5 font-sans text-base font-normal text-fg-muted sm:text-lg">
