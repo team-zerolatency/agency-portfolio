@@ -1,3 +1,5 @@
+import { Hero } from "@/components/sections/hero";
+import { Clients } from "@/components/sections/clients";
 import { SectionLabel } from "@/components/ui/section-label";
 import { BentoCell, BentoGrid } from "@/components/ui/bento";
 
@@ -10,12 +12,10 @@ const placeholders = [
 export default function Home() {
   return (
     <>
-      <section className="flex min-h-screen items-center justify-center px-6 pt-16">
-        <h1 className="font-display text-5xl font-semibold tracking-tight md:text-7xl">
-          Hero goes here
-        </h1>
-      </section>
+      <Hero />
+      <Clients />
 
+      {/* Phase 3 replaces this preview with the real services bento */}
       <section id="services" className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
         <SectionLabel index={1} label="Services" />
         <h2 className="mt-3 font-display text-3xl font-semibold">Bento grid preview</h2>
