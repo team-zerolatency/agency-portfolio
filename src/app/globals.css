@@ -43,6 +43,7 @@
 
 @theme {
   --animate-marquee: marquee var(--marquee-duration, 30s) linear infinite;
+  --animate-glass-sweep: glass-sweep 4s ease-in-out infinite;
 
   @keyframes marquee {
     from {
@@ -50,6 +51,28 @@
     }
     to {
       transform: translateX(-100%);
+    }
+  }
+
+  @keyframes glass-sweep {
+    0% {
+      transform: translateX(-60px) skewX(-24deg);
+      opacity: 0;
+    }
+    8% {
+      opacity: 0.85;
+    }
+    42% {
+      transform: translateX(220px) skewX(-24deg);
+      opacity: 0.85;
+    }
+    48% {
+      transform: translateX(230px) skewX(-24deg);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(230px) skewX(-24deg);
+      opacity: 0;
     }
   }
 }

@@ -13,11 +13,11 @@ const reveal = (i: number) => ({
   transition: { delay: i * 0.08, duration: 0.5, ease: "easeOut" as const },
 });
 
-export function Hero({ strip }: { strip: React.ReactNode }) {
+export function Hero() {
   const { eyebrow, headline, description, stats } = homeConfig.hero;
 
   return (
-    <section className="relative overflow-hidden pt-16">
+    <section className="relative overflow-hidden pt-16 sm:pt-[68px]">
       {/* background: glow + faint grid */}
       <div
         aria-hidden
@@ -25,18 +25,14 @@ export function Hero({ strip }: { strip: React.ReactNode }) {
       />
       {/*
         Grid lines every 48px, shifted down 63px: the navbar is 64px tall, so the first
-        horizontal line sits on its bottom border. The strip below is 96px (2 cells) tall,
-        so its bottom border lands on a grid line too.
+        horizontal line sits on its bottom border.
       */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(var(--border)_1px,transparent_1px),linear-gradient(90deg,var(--border)_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)] bg-[size:48px_48px] bg-[position:0_63px]"
       />
 
-      {/* tech logo strip (passed in from the page) */}
-      {strip}
-
-      <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.2fr_1fr] lg:items-center lg:py-28">
+      <div className="mx-auto grid max-w-6xl gap-12 px-4 pt-8 pb-16 sm:px-6 sm:pt-12 sm:pb-20 lg:grid-cols-[1.2fr_1fr] lg:items-center">
         <div>
           <motion.p
             {...reveal(0)}

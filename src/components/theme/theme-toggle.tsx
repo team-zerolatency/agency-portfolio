@@ -2,10 +2,11 @@
 import { useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
+import { cn } from "@/lib/cn";
 
 const subscribe = () => () => {};
 
-export function ThemeToggle() {
+export function ThemeToggle({ className }: { className?: string } = {}) {
   const { resolvedTheme, setTheme } = useTheme();
   // false on the server, true in the browser: avoids a hydration mismatch on the icon
   const mounted = useSyncExternalStore(
@@ -20,7 +21,10 @@ export function ThemeToggle() {
       type="button"
       aria-label="Toggle theme"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="inline-flex size-9 items-center justify-center rounded-full text-fg glass transition hover:bg-bg-elevated"
+      className={cn(
+        "inline-flex size-10 items-center justify-center rounded-full text-fg glass transition hover:bg-bg-elevated",
+        className,
+      )}
     >
       {mounted ? (
         isDark ? (

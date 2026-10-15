@@ -8,18 +8,17 @@ import { Speed } from "@/components/sections/speed";
 import { GlobeSection } from "@/components/sections/globe-section";
 import { TeamSection } from "@/components/sections/team-section";
 import { ContactSection } from "@/components/sections/contact-section";
-import { TechStrip } from "@/components/sections/tech-strip";
 
 export default function Home() {
   return (
     <main className="relative isolate overflow-hidden">
       <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
-        <div className="absolute top-0 bottom-0 left-1/2 w-full max-w-[1360px] -translate-x-1/2 border-x border-t border-border" />
+        <div className="absolute top-0 bottom-0 left-1/2 w-full max-w-[1360px] -translate-x-1/2 border-x border-t border-dashed border-border" />
       </div>
 
       <div className="relative z-10">
         <div className="w-full border-b border-border">
-          <Hero strip={<TechStrip />} />
+          <Hero />
         </div>
         <div className="w-full border-b border-border">
           <ProjectsBand />

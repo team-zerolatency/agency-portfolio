@@ -3,7 +3,7 @@ import { Hero } from "./hero";
 import { homeConfig } from "@/config/home";
 import { siteConfig } from "@/config/site";
 
-const renderHero = () => render(<Hero strip={<div data-testid="strip" />} />);
+const renderHero = () => render(<Hero />);
 
 describe("Hero", () => {
   it("renders the headline with the accent phrase", () => {
@@ -32,12 +32,7 @@ describe("Hero", () => {
     expect(screen.getByRole("region", { name: /client testimonials/i })).toBeInTheDocument();
   });
 
-  it("renders the strip passed in from the page", () => {
-    renderHero();
-    expect(screen.getByTestId("strip")).toBeInTheDocument();
-  });
-
-  it("keeps the background grid shifted so its lines meet the navbar and strip borders", () => {
+  it("keeps the background grid shifted so its lines meet the navbar border", () => {
     const { container } = renderHero();
     expect(container.querySelector('[class*="bg-[position:0_63px]"]')).not.toBeNull();
   });

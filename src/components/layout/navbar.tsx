@@ -25,13 +25,13 @@ export function Navbar() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       data-scrolled={scrolled}
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-colors",
-        scrolled || open ? "border-x-0 border-t-0 glass" : "border-b border-transparent",
+        "fixed inset-x-0 top-0 z-50 border-x-0 border-t border-b border-dashed border-border transition-all duration-200",
+        scrolled || open ? "bg-[var(--surface)] shadow-sm backdrop-blur-md" : "bg-transparent",
       )}
     >
       <nav
         aria-label="Main"
-        className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6"
+        className="mx-auto flex h-16 max-w-[1360px] items-center justify-between px-4 sm:h-[68px] sm:px-6"
       >
         <Link
           href="/"
@@ -41,18 +41,12 @@ export function Navbar() {
           {/* Hand-rubbed paint swipe splash logo */}
           <svg
             viewBox="0 0 205 38"
-            className="h-9 w-auto select-none"
+            className="h-8.5 w-auto select-none sm:h-9"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
           >
             <defs>
-              {/* Soft bright gradient for Zero */}
-              <linearGradient id="zero-soft-grad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="#ffffff" />
-                <stop offset="100%" stopColor="#e2e8f0" />
-              </linearGradient>
-
               {/* Vibrant deep electric blue specifically for Latency */}
               <linearGradient id="latency-deep-blue" x1="0" y1="0" x2="1" y2="0">
                 <stop offset="0%" stopColor="#2563eb" />
@@ -82,6 +76,33 @@ export function Navbar() {
                 <stop offset="50%" stopColor="#60a5fa" stopOpacity="0.4" />
                 <stop offset="100%" stopColor="#2b8cff" stopOpacity="0.1" />
               </linearGradient>
+
+              {/* Glass lighting sheen beam */}
+              <linearGradient id="glass-light-sheen" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="#ffffff" stopOpacity="0" />
+                <stop offset="30%" stopColor="#ffffff" stopOpacity="0.3" />
+                <stop offset="50%" stopColor="#ffffff" stopOpacity="0.95" />
+                <stop offset="65%" stopColor="#7cc0ff" stopOpacity="0.75" />
+                <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
+              </linearGradient>
+
+              {/* Clip path matching the wordmark text so light shines precisely across the letters */}
+              <clipPath id="zero-latency-glass-clip">
+                <text
+                  x="6"
+                  y="26"
+                  style={{
+                    fontFamily: "var(--font-space), var(--font-inter), sans-serif",
+                    fontSize: "23px",
+                    fontStyle: "italic",
+                    fontWeight: "900",
+                    letterSpacing: "-0.04em",
+                  }}
+                >
+                  <tspan>Zero</tspan>
+                  <tspan>Latency</tspan>
+                </text>
+              </clipPath>
             </defs>
 
             {/* Hand-rubbed painting brush swipe - lower opacity, extended across Zero & Latency, NO dots */}
@@ -116,39 +137,55 @@ export function Navbar() {
                 letterSpacing: "-0.04em",
               }}
             >
-              <tspan
-                fill="url(#zero-soft-grad)"
-                className="transition-colors group-hover:fill-white"
-              >
-                Zero
-              </tspan>
+              <tspan className="fill-fg transition-colors">Zero</tspan>
               <tspan fill="url(#latency-deep-blue)" className="font-black">
                 Latency
               </tspan>
             </text>
+
+            {/* Glass lighting reflection sweep animation from left to right */}
+            <g clipPath="url(#zero-latency-glass-clip)" className="pointer-events-none">
+              <rect
+                x="0"
+                y="-10"
+                width="46"
+                height="58"
+                fill="url(#glass-light-sheen)"
+                className="animate-glass-sweep"
+              />
+            </g>
           </svg>
         </Link>
 
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center gap-7 md:flex lg:gap-8">
           {siteConfig.nav.map((l) => (
             <li key={l.label}>
-              <Link href={l.href} className="text-sm text-fg-muted transition hover:text-fg">
+              <Link
+                href={l.href}
+                className="text-sm font-medium text-fg-muted transition hover:text-fg"
+              >
                 {l.label}
               </Link>
             </li>
           ))}
         </ul>
 
-        <div className="hidden items-center gap-3 md:flex">
-          <ThemeToggle />
-          <ButtonLink href={siteConfig.secondaryCta.href} variant="ghost">
+        <div className="hidden items-center gap-3 sm:gap-3.5 md:flex">
+          <ThemeToggle className="size-9" />
+          <ButtonLink
+            href={siteConfig.secondaryCta.href}
+            variant="ghost"
+            className="px-4 py-2 text-sm"
+          >
             {siteConfig.secondaryCta.label}
           </ButtonLink>
-          <ButtonLink href={siteConfig.cta.href}>{siteConfig.cta.label}</ButtonLink>
+          <ButtonLink href={siteConfig.cta.href} className="px-5 py-2 text-sm font-medium">
+            {siteConfig.cta.label}
+          </ButtonLink>
         </div>
 
-        <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle />
+        <div className="flex items-center gap-2.5 md:hidden">
+          <ThemeToggle className="size-9" />
           <button
             type="button"
             aria-label="Menu"
