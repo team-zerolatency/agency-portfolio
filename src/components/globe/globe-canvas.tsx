@@ -2,7 +2,7 @@
 import { lazy, Suspense, useRef, useSyncExternalStore } from "react";
 import { useInView, useReducedMotion } from "framer-motion";
 import { useTheme } from "next-themes";
-import { globeColors, type GlobeLocation } from "@/config/globe";
+import { globeColors, type GlobeLocation, type GlobeConnection } from "@/config/globe";
 import { hasWebGL } from "@/lib/webgl";
 import { cn } from "@/lib/cn";
 
@@ -22,10 +22,11 @@ function Placeholder() {
 
 interface GlobeCanvasProps {
   locations: GlobeLocation[];
+  connections?: GlobeConnection[];
   className?: string;
 }
 
-export function GlobeCanvas({ locations, className }: GlobeCanvasProps) {
+export function GlobeCanvas({ locations, connections = [], className }: GlobeCanvasProps) {
   const ref = useRef<HTMLDivElement>(null);
   // start loading a little before the section scrolls into view
   const nearViewport = useInView(ref, { once: true, margin: "300px" });
@@ -48,7 +49,12 @@ export function GlobeCanvas({ locations, className }: GlobeCanvasProps) {
         </p>
       ) : nearViewport ? (
         <Suspense fallback={<Placeholder />}>
-          <GlobeScene locations={locations} colors={colors} autoRotate={!reduceMotion} />
+          <GlobeScene
+            locations={locations}
+            connections={connections}
+            colors={colors}
+            autoRotate={!reduceMotion}
+          />
         </Suspense>
       ) : (
         <Placeholder />

@@ -1,4 +1,4 @@
-import { fibonacciSphere, latLngToVector3 } from "./globe";
+import { fibonacciSphere, latLngToVector3, getArcPoint } from "./globe";
 
 describe("latLngToVector3", () => {
   it("puts the north pole on the +Y axis", () => {
@@ -46,5 +46,22 @@ describe("fibonacciSphere", () => {
     for (let i = 0; i < pts.length; i += 3) {
       expect(Math.hypot(pts[i], pts[i + 1], pts[i + 2])).toBeCloseTo(2, 4);
     }
+  });
+});
+
+describe("getArcPoint & greatCircleArc", () => {
+  it("interpolates from start to end", () => {
+    const start = latLngToVector3(40, -74, 2);
+    const end = latLngToVector3(51, 0, 2);
+    const arcStart = getArcPoint(40, -74, 51, 0, 2, 0);
+    const arcEnd = getArcPoint(40, -74, 51, 0, 2, 1);
+
+    expect(arcStart[0]).toBeCloseTo(start[0], 4);
+    expect(arcStart[1]).toBeCloseTo(start[1], 4);
+    expect(arcStart[2]).toBeCloseTo(start[2], 4);
+
+    expect(arcEnd[0]).toBeCloseTo(end[0], 4);
+    expect(arcEnd[1]).toBeCloseTo(end[1], 4);
+    expect(arcEnd[2]).toBeCloseTo(end[2], 4);
   });
 });

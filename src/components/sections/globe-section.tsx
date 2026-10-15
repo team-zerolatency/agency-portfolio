@@ -1,48 +1,55 @@
 import { globeConfig } from "@/config/globe";
 import { GlobeCanvas } from "@/components/globe/globe-canvas";
-import { BentoCell, BentoGrid } from "@/components/ui/bento";
 import { CountUp } from "@/components/ui/count-up";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeader } from "@/components/ui/section-header";
 
 export function GlobeSection() {
-  const { label, heading, description, locations, stats } = globeConfig;
+  const { label, heading, description, locations, connections, stats } = globeConfig;
 
   return (
-    <section id="reach" className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
-      <SectionHeader index={6} label={label} heading={heading} description={description} />
+    <section id="reach" className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+      <Reveal>
+        {/* 2-Column Split matching reference: Heading on Left, Globe on Right */}
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12">
+          {/* Left Column: Headline and Description */}
+          <div className="flex flex-col justify-center lg:col-span-5">
+            <SectionHeader index={6} label={label} heading={heading} description={description} />
+          </div>
 
-      <Reveal className="mt-12">
-        <BentoGrid>
-          <BentoCell size="lg" className="p-0">
-            <GlobeCanvas locations={locations} className="h-[22rem] md:h-[32rem]" />
-          </BentoCell>
-
-          <BentoCell size="tall">
-            <h3 className="font-display text-xl font-semibold">Where our clients are</h3>
-            <ul className="mt-4 divide-y divide-border">
+          {/* Right Column: Globe positioned cleanly on the right like ref img */}
+          <div className="relative flex w-full items-center justify-center lg:col-span-7 lg:justify-end">
+            {/* Accessible list for screen readers and SEO */}
+            <ul className="sr-only" aria-label="Client locations directory">
               {locations.map((l) => (
-                <li key={l.name} className="py-3">
-                  <p className="text-sm font-medium">{l.name}</p>
-                  <p className="text-xs text-fg-muted">
-                    {l.region} · {l.detail}
-                  </p>
+                <li key={l.name}>
+                  <span>{l.name}</span>: {l.region} - {l.detail}
                 </li>
               ))}
             </ul>
-          </BentoCell>
 
+            <GlobeCanvas
+              locations={locations}
+              connections={connections}
+              className="h-[24rem] w-full sm:h-[28rem] md:h-[34rem] lg:h-[38rem]"
+            />
+          </div>
+        </div>
+
+        {/* Global Reach Stats Grid below */}
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
           {stats.map((s) => (
-            <BentoCell key={s.label} size="md">
-              <div className="flex h-full flex-col justify-end">
-                <p className="font-display text-4xl font-semibold">
-                  <CountUp to={s.value} prefix={s.prefix} suffix={s.suffix} />
-                </p>
-                <p className="mt-2 text-sm text-fg-muted">{s.label}</p>
-              </div>
-            </BentoCell>
+            <div
+              key={s.label}
+              className="flex flex-col justify-end rounded-2xl p-6 glass transition-transform hover:-translate-y-0.5"
+            >
+              <p className="font-display text-3xl font-semibold text-fg sm:text-4xl">
+                <CountUp to={s.value} prefix={s.prefix} suffix={s.suffix} />
+              </p>
+              <p className="mt-2 text-sm text-fg-muted">{s.label}</p>
+            </div>
           ))}
-        </BentoGrid>
+        </div>
       </Reveal>
     </section>
   );
